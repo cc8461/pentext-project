@@ -1,4 +1,4 @@
-build-job:
+build:
   tags:
     - report
   stage: build
