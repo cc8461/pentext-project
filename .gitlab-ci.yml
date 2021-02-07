@@ -1,3 +1,23 @@
+stages:
+  - convert
+  - build
+
+convert:
+  tags:
+    - convert
+  stage: convert
+  script:
+    - echo "Convert all the things!"
+  artifacts:
+    untracked: true
+    paths:
+      - source/report.xml
+      - findings/*.xml
+      - non-findings/*.xml
+      - uploads/**
+  rules:
+    - if: $CI_PROJECT_NAME =~ /^pen-/
+
 build:
   tags:
     - report
